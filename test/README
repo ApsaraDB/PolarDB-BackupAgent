@@ -1,0 +1,3 @@
+How to test
+
+copy test.sh and testfile to directory same as backup_ctl and execute ./test.sh

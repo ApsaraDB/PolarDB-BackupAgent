@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "./polardb";
+package polardb;
+
+message InsSpec {
+    string host = 1;
+    int32  port = 2;
+    string username = 3;
+    string password = 4;
+    string database = 5;
+    string instype = 6; // "db", "maxscale", "cm"
+}
+
+message SyncInstanceRequest {
+    string system_identify = 1;
+    string logical_insname = 4;
+    InsSpec ins = 2;
+    InsSpec rw = 3;
+}
+
+message SyncInstanceResponse {
+  int32 code = 1;
+  string msg = 2;
+  string version= 3;
+}
+
+service ControlService {
+   rpc SyncInstance(SyncInstanceRequest) returns (SyncInstanceResponse);
+}
