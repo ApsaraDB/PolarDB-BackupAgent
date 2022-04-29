@@ -7,7 +7,7 @@ BRANCH := $(shell git branch | grep '\*' | cut -d ' ' -f 2 | cut -d '/' -f 2)
 
 TARGET = backup_ctl
 
-all: version libwaldump.a $(TARGET) plugins sometools
+all: version libwaldump.a plugins $(TARGET) sometools
 	mv backup_ctl run/backup_ctl
 
 fmt:
@@ -43,11 +43,11 @@ rpc:
 	cd loader/cmctrl; protoc --proto_path=./proto --go_out=. --go-grpc_out=. control_service.proto
 
 rpm: clean
-	git stash
 	make all
 	rm -rf ~/rpmbuild/BUILD
-	mkdir ~/rpmbuild/BUILD
+	mkdir -p ~/rpmbuild/BUILD
 	mkdir -p ~/rpmbuild/BUILD/script/dbstack
+	mkdir -p ~/rpmbuild/SPECS
 	cp run/* ~/rpmbuild/BUILD
 	cp scripts/dbstack/* ~/rpmbuild/BUILD/script/dbstack
 	cp VERSION ~/rpmbuild/BUILD
@@ -55,8 +55,6 @@ rpm: clean
 	cp rpm/polardb-backup-agent.spec ~/rpmbuild/SPECS
 	sed -i "s/RELEASEDATE/$(DATE)/g" ~/rpmbuild/SPECS/polardb-backup-agent.spec
 	rpmbuild -bb ~/rpmbuild/SPECS/polardb-backup-agent.spec
-	make clean
-	git stash pop
 
 version:
 	./scripts/version_hack.sh

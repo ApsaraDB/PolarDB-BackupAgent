@@ -15,7 +15,6 @@ require (
 	github.com/pierrec/lz4 v2.5.2+incompatible
 	github.com/pkg/sftp v1.13.2 // indirect
 	github.com/sirupsen/logrus v1.6.0
-	gitlab.alibaba-inc.com/aliyun-dbs/dedup-gateway-sdk v0.0.0-20200818112337-287659f2d080
 	golang.org/x/net v0.0.0-20210825183410-e898025ed96a // indirect
 	golang.org/x/sys v0.0.0-20210823070655-63515b42dcdf // indirect
 	golang.org/x/text v0.3.7 // indirect
