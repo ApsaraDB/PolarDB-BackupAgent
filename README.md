@@ -14,12 +14,15 @@ A distributed, high performance and high avaliable backup agent for polardb pg w
 1. Enter root directory
 2. make rpm
 
-# distributed
-## shared disk
+# Distributed
+## Shared disk
 You can refer to [polarstack](docs/polarstack-cn.md) for using introduction in polarstack shared disk enviroment.
-## shared nothing
+## Shared nothing
 TODO
-# single
+# Single
 TODO
+# Develop
+PolarDB Backup Agent is flexible to extend the new plugins. You can following the [plugin.md](docs/plugin.md) to create a new plugin.
+
 # Software License
 PolarDB-BackupAgent is developed based on[ the open source software license Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).
